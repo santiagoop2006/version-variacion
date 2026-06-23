@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ColorLab Pro — Variación Estructural</title>
+    <link rel="stylesheet" href="styles-darkk.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body class="theme-dark">
+
+    <nav class="main-nav">
+        <div class="nav-container">
+            <span class="logo">Color<strong>Lab.</strong> <small class="alt-badge">Alt View</small></span>
+            <div class="nav-actions">
+                <span class="badge">Inverted Layout</span>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-section">
+        <div class="hero-content">
+            <h1>Estructura alternativa y <br><span class="text-gradient">contraste inverso</span></h1>
+            <p>Evaluación de legibilidad mediante la inversión completa de la jerarquía visual, el orden de los componentes y la paleta de color de la interfaz.</p>
+        </div>
+    </header>
+
+    <main class="dashboard-layout">
+        
+        <section class="concepts-grid">
+            <div class="concept-card">
+                <div class="card-meta">Accesibilidad WCAG</div>
+                <h3>Contraste de Relación 4.5:1</h3>
+                <p>Garantizar que el texto sea legible contra el fondo es un requerimiento legal de accesibilidad. Un contraste deficiente rompe la experiencia de usuario de manera drástica.</p>
+            </div>
+
+            <div class="concept-card">
+                <div class="card-meta">Psicología Cognitiva</div>
+                <h3>Psicología del Color</h3>
+                <p>Los colores no solo decoran; disparan respuestas biológicas y psicológicas. El azul reduce la tasa cardíaca induciendo confianza, mientras que el amarillo procesa la atención de manera inmediata.</p>
+            </div>
+        </section>
+
+        <section class="interactive-panel">
+            <div class="panel-header">
+                <h2>02 / Laboratorio de Armonías (Vista Alterna)</h2>
+                <p>Selecciona una regla cromática para visualizar su comportamiento en tiempo real.</p>
+            </div>
+            
+            <div class="color-controls">
+                <button class="control-btn active" onclick="changeHarmony('monochromatic')">Monocromático</button>
+                <button class="control-btn" onclick="changeHarmony('analogous')">Análogo</button>
+                <button class="control-btn" onclick="changeHarmony('complementary')">Complementario</button>
+            </div>
+
+            <div class="palette-preview" id="paletteVisualizer">
+                <div class="color-swatch" style="background: #4f46e5"><span>#4f46e5</span></div>
+                <div class="color-swatch" style="background: #6366f1"><span>#6366f1</span></div>
+                <div class="color-swatch" style="background: #818cf8"><span>#818cf8</span></div>
+                <div class="color-swatch" style="background: #a5b4fc"><span>#a5b4fc</span></div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="main-footer">
+        <p>&copy; 2026 ColorLab Pro. Versión alternativa con inversión cromática.</p>
+    </footer>
+
+    <script>
+        function changeHarmony(type) {
+            document.querySelectorAll('.control-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            const visualizer = document.getElementById('paletteVisualizer');
+            
+            if (type === 'monochromatic') {
+                visualizer.innerHTML = `
+                    <div class="color-swatch" style="background: #4f46e5"><span>#4f46e5</span></div>
+                    <div class="color-swatch" style="background: #6366f1"><span>#6366f1</span></div>
+                    <div class="color-swatch" style="background: #818cf8"><span>#818cf8</span></div>
+                    <div class="color-swatch" style="background: #a5b4fc"><span>#a5b4fc</span></div>
+                `;
+            } else if (type === 'analogous') {
+                visualizer.innerHTML = `
+                    <div class="color-swatch" style="background: #4f46e5"><span>#4f46e5</span></div>
+                    <div class="color-swatch" style="background: #7c3aed"><span>#7c3aed</span></div>
+                    <div class="color-swatch" style="background: #2563eb"><span>#2563eb</span></div>
+                    <div class="color-swatch" style="background: #0d9488"><span>#0d9488</span></div>
+                `;
+            } else if (type === 'complementary') {
+                visualizer.innerHTML = `
+                    <div class="color-swatch" style="background: #4f46e5"><span>#4f46e5</span></div>
+                    <div class="color-swatch" style="background: #ea580c"><span>#ea580c</span></div>
+                    <div class="color-swatch" style="background: #f97316"><span>#f97316</span></div>
+                    <div class="color-swatch" style="background: #c084fc"><span>#c084fc</span></div>
+                `;
+            }
+        }
+    </script>
+</body>
+</html>
